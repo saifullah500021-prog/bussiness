@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیف اللہ خان | ذاتی پورٹ فولیو</title>
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/noto-nastaliq-urdu@latest/index.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --purple: #8b5cf6;
+            --green: #10b981;
+            --red: #ef4444;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --border: rgba(245, 158, 11, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 2;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-animation .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: blobMove 20s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--blue);
+            bottom: -200px;
+            left: -200px;
+            animation-delay: 5s;
+        }
+
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--purple);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes blobMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .nav-logo-circle {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .nav-logo-text {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mobile-menu span {
+            width: 28px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px 60px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-greeting {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--border);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--accent), transparent);
+            animation: rotate 8s linear infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(245, 158, 11, 0.3);
+        }
+
+        .profile-avatar::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px dashed var(--accent);
+            animation: rotate 20s linear infinite;
+        }
+
+        .profile-avatar svg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .profile-card h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .profile-card .role {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .stat-item {
+            padding: 15px 10px;
+            background: rgba(245, 158, 11, 0.08);
+            border-radius: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item .num {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .stat-item .label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Floating badges */
+        .floating-badge {
+            position: absolute;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: float 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .floating-badge svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .badge-1 {
+            top: 20px;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            bottom: 80px;
+            left: -40px;
+            animation-delay: 1.5s;
+        }
+
+        .badge-3 {
+            bottom: 20px;
+            right: -20px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-card h3 svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list .label {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .info-list .value {
+            color: var(--text);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .about-description {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        /* Education Section */
+        .education {
+            background: linear-gradient(180deg, transparent, rgba(30, 41, 59, 0.3), transparent);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent), var(--blue), var(--purple));
+            transform: translateX(50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 0 3px var(--accent);
+            z-index: 2;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .timeline-content h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Hobbies Section */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .hobby-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 40px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--accent), transparent);
+            opacity: 0.1;
+            transition: all 0.4s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.15);
+        }
+
+        .hobby-card:hover::before {
+            opacity: 0.2;
+            transform: scale(1.5);
+        }
+
+        .hobby-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .hobby-icon svg {
+            width: 45px;
+            height: 45px;
+        }
+
+        .hobby-card h3 {
+            font-size: 1.6rem;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .hobby-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .hobby-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .hobby-tag {
+            padding: 6px 14px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        /* Driving Section */
+        .driving-section {
+            background: linear-gradient(180deg, transparent, rgba(30, 41, 59, 0.3), transparent);
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .car-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .car-card svg {
+            width: 150px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .car-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .car-card p {
+            color: var(--text-dim);
+        }
+
+        .car-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 5px 12px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .skills-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 40px;
+        }
+
+        .skills-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skills-card h3 svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .skill-percent {
+            color: var(--accent);
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        .academy-info {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .academy-info h4 {
+            color: var(--blue-light);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .academy-info p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(180deg, transparent, rgba(30, 41, 59, 0.3));
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px;
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .contact-info h4 {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+            font-weight: normal;
+        }
+
+        .contact-info p {
+            color: var(--text);
+            font-size: 1.05rem;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            direction: rtl;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-dim);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid var(--border);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-name {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--accent);
+            transition: fill 0.3s;
+        }
+
+        .social-link:hover svg {
+            fill: var(--primary);
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        .scroll-top svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Animations on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .hobbies-grid,
+            .cars-grid,
+            .skills-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                right: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: row;
+                padding-right: 50px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                right: 20px;
+                transform: translateX(50%);
+            }
+
+            .floating-badge {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                text-align: center;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-avatar {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="scrollTo({top:0, behavior:'smooth'})">
+                <div class="nav-logo-circle">SK</div>
+                <span class="nav-logo-text">سیف اللہ خان</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">ہوم</a></li>
+                <li><a href="#about">تعارف</a></li>
+                <li><a href="#education">تعلیم</a></li>
+                <li><a href="#hobbies">شوق</a></li>
+                <li><a href="#driving">ڈرائیونگ</a></li>
+                <li><a href="#skills">مہارتیں</a></li>
+                <li><a href="#contact">رابطہ</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-greeting">✨ السلام علیکم، میں ہوں</span>
+                <h1>سیف اللہ <span class="highlight">خان</span></h1>
+                <h2>بیٹا اجمل خان | ویب ڈویلپر | لائف اکیڈمی کا طالب علم</h2>
+                <p>تحریر کا شوق، ڈرائیونگ کا جنون، اور ٹیکنالوجی کی دنیا میں نیا سفر — میں سیکھ رہا ہوں، بڑھ رہا ہوں، اور اپنے خوابوں کو حقیقت بنا رہا ہوں۔</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        رابطہ کریں
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                    </a>
+                    <a href="#about" class="btn btn-outline">مزید جانیں</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="35" r="18" fill="#0f172a"/>
+                            <path d="M20 85c0-16.5 13.5-30 30-30s30 13.5 30 30" fill="#0f172a"/>
+                            <circle cx="50" cy="35" r="14" fill="#f59e0b" opacity="0.2"/>
+                            <path d="M35 50 Q50 65 65 50" stroke="#f59e0b" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>سیف اللہ خان</h3>
+                    <p class="role">ویب ڈویلپر | AI طالب علم</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="num">2+</span>
+                            <span class="label">سال تعلیم</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="num">2</span>
+                            <span class="label">کورسز</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="num">∞</span>
+                            <span class="label">جذبات</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Badges -->
+                <div class="floating-badge badge-1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                        <path d="M2 2l7.586 7.586"/>
+                        <circle cx="11" cy="11" r="2"/>
+                    </svg>
+                    <span style="color: var(--text);">تحریر</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                        <rect x="1" y="3" width="15" height="13" rx="2"/>
+                        <path d="M16 8h4l3 3v5h-7V8z"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                    <span style="color: var(--text);">ڈرائیونگ</span>
+                </div>
+                <div class="floating-badge badge-3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    <span style="color: var(--text);">AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">تعارف</span>
+                <h2 class="section-title">میرے بارے میں</h2>
+                <p class="section-subtitle">ایک مختصر تعارف — کون ہوں میں اور کیا کرتا ہوں</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <circle cx="12" cy="8" r="5"/>
+                            <path d="M3 21v-2a7 7 0 0114 0v2"/>
+                        </svg>
+                        ذاتی معلومات
+                    </h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="label">مکمل نام</span>
+                            <span class="value">سیف اللہ خان</span>
+                        </li>
+                        <li>
+                            <span class="label">والد کا نام</span>
+                            <span class="value">اجمل خان</span>
+                        </li>
+                        <li>
+                            <span class="label">تعلیم</span>
+                            <span class="value">فرسٹ اور سیکنڈ ایئر</span>
+                        </li>
+                        <li>
+                            <span class="label">موجودہ کورس</span>
+                            <span class="value">ویب ڈویلپمنٹ اور AI</span>
+                        </li>
+                        <li>
+                            <span class="label">اکیڈمی</span>
+                            <span class="value">لائف اکیڈمی</span>
+                        </li>
+                        <li>
+                            <span class="label">پتہ</span>
+                            <span class="value">نارتھ ناظم آباد، حسین آباد روڈ، کراچی</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                        </svg>
+                        میری کہانی
+                    </h3>
+                    <p class="about-description">
+                        میرا نام سیف اللہ خان ہے اور میں اجمل خان کا بیٹا ہوں۔ مجھے بچپن سے لکھنے کا بہت شوق ہے — جب میں اسکول میں پڑھتا تھا تو رائٹنگ میں بہت مزہ آتا تھا۔
+                    </p>
+                    <p class="about-description">
+                        میں نے فرسٹ اور سیکنڈ ایئر پاس کیا ہے اور اب میں لائف اکیڈمی میں ویب ڈویلپمنٹ اور AI کا کورس کر رہا ہوں۔ ٹیکنالوجی کی دنیا میں اپنا مستقبل بنانا چاہتا ہوں۔
+                    </p>
+                    <p class="about-description">
+                        مجھے ڈرائیونگ کا بہت شوق ہے — ابو کے پاس دو ٹویوٹا ریوو ہیں جن پر میں ڈرائیونگ کرتا ہوں۔ لیکن مجھے بائیک سے بہت ڈر لگتا ہے، اس لیے بائیک نہیں چلاتا۔
+                    </p>
+                    <p class="about-description">
+                        میں اپنے ابو کا کاروبار بھی سنبھالتا ہوں — کنسٹرکشن کا کام ہے، باؤنڈری وال، ڈمپر، اور بلاک ورکس۔
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">تعلیمی سفر</span>
+                <h2 class="section-title">میری تعلیم</h2>
+                <p class="section-subtitle">اسکول سے لائف اکیڈمی تک — سیکھنے کا سفر جاری ہے</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <span class="timeline-year">School Days</span>
+                        <h3>اسکول کی تعلیم</h3>
+                        <p>اسکول میں پڑھائی کے ساتھ ساتھ لکھنے کا شوق پروان چڑھا۔ رائٹنگ میں خاص دلچسپی رہی۔</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Intermediate</span>
+                        <h3>فرسٹ اور سیکنڈ ایئر</h3>
+                        <p>انٹرمیڈیٹ کی تعلیم مکمل کی۔ تعلیمی سفر میں ایک اہم سنگ میل۔</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Current</span>
+                        <h3>لائف اکیڈمی</h3>
+                        <p>ویب ڈویلپمنٹ اور مصنوعی ذہانت (AI) کا کورس — مستقبل کی ٹیکنالوجی سیکھ رہا ہوں۔</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Ongoing</span>
+                        <h3>خاندانی کاروبار</h3>
+                        <p>ابو کا کنسٹرکشن کاروبار سنبھالنا — باؤنڈری وال، ڈمپر، بلاک ورکس سب سیکھ رہا ہوں۔</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section class="section" id="hobbies">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">دلچسپیاں</span>
+                <h2 class="section-title">میرے شوق</h2>
+                <p class="section-subtitle">وہ چیزیں جو مجھے خوشی دیتی ہیں اور میری شخصیت کا حصہ ہیں</p>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-card animate-on-scroll">
+                    <div class="hobby-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                            <path d="M2 2l7.586 7.586"/>
+                            <circle cx="11" cy="11" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>لکھنے کا شوق</h3>
+                    <p>بچپن سے لکھنے کا جنون رہا ہے۔ جب اسکول میں پڑھتا تھا تو رائٹنگ میں بہت مزہ آتا تھا۔ الفاظ کا کھیل، خیالات کا اظہار — یہی میری پہچان ہے۔</p>
+                    <div class="hobby-tags">
+                        <span class="hobby-tag">تحریر</span>
+                        <span class="hobby-tag">تخلیق</span>
+                        <span class="hobby-tag">اظہار</span>
+                    </div>
+                </div>
+                <div class="hobby-card animate-on-scroll">
+                    <div class="hobby-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <rect x="2" y="6" width="15" height="10" rx="2"/>
+                            <path d="M17 10h3l2 3v3h-5"/>
+                            <circle cx="7" cy="18" r="2"/>
+                            <circle cx="17" cy="18" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>ڈرائیونگ کا جنون</h3>
+                    <p>گاڑی چلانے کا بہت شوق ہے۔ ابو کی ٹویوٹا ریوو پر ڈرائیونگ کرنا میرے لیے خوشی کا باعث ہے۔ سڑک پر نکلنا، ہوا کا احساس — یہی زندگی ہے۔</p>
+                    <div class="hobby-tags">
+                        <span class="hobby-tag">ٹویوٹا ریوو</span>
+                        <span class="hobby-tag">4x4</span>
+                        <span class="hobby-tag">سفر</span>
+                    </div>
+                </div>
+                <div class="hobby-card animate-on-scroll">
+                    <div class="hobby-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                            <line x1="14" y1="4" x2="10" y2="20"/>
+                        </svg>
+                    </div>
+                    <h3>ٹیکنالوجی کا شوق</h3>
+                    <p>لائف اکیڈمی میں ویب ڈویلپمنٹ اور AI سیکھ رہا ہوں۔ نئی ٹیکنالوجیز کو سمجھنا اور استعمال کرنا — یہی میرا مستقبل ہے۔</p>
+                    <div class="hobby-tags">
+                        <span class="hobby-tag">ویب ڈویلپمنٹ</span>
+                        <span class="hobby-tag">AI</span>
+                        <span class="hobby-tag">کوڈنگ</span>
+                    </div>
+                </div>
+                <div class="hobby-card animate-on-scroll">
+                    <div class="hobby-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M3 21h18"/>
+                            <path d="M5 21V7l8-4v18"/>
+                            <path d="M19 21V11l-6-4"/>
+                            <path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/>
+                        </svg>
+                    </div>
+                    <h3>کاروبار سنبھالنا</h3>
+                    <p>ابو کا کنسٹرکشن کاروبار سنبھالنا — باؤنڈری وال، ڈمپر، بلاک ورکس۔ کاروباری دنیا کے تجربات حاصل کرنا۔</p>
+                    <div class="hobby-tags">
+                        <span class="hobby-tag">کنسٹرکشن</span>
+                        <span class="hobby-tag">کاروبار</span>
+                        <span class="hobby-tag">انتظام</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Driving Section -->
+    <section class="section driving-section" id="driving">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">ڈرائیونگ</span>
+                <h2 class="section-title">میری گاڑیاں</h2>
+                <p class="section-subtitle">ابو کی ٹویوٹا ریوو — ڈرائیونگ کا اصل مزہ</p>
+            </div>
+            <div class="cars-grid">
+                <div class="car-card animate-on-scroll">
+                    <span class="car-badge">REVO 1</span>
+                    <svg viewBox="0 0 200 120" fill="none">
+                        <!-- Toyota Revo Style SUV -->
+                        <rect x="20" y="50" width="160" height="35" rx="5" fill="#f59e0b"/>
+                        <path d="M40 50 L60 25 L140 25 L160 50" fill="#f59e0b"/>
+                        <rect x="65" y="30" width="30" height="20" rx="2" fill="#0f172a" opacity="0.6"/>
+                        <rect x="105" y="30" width="30" height="20" rx="2" fill="#0f172a" opacity="0.6"/>
+                        <circle cx="55" cy="90" r="15" fill="#1e293b"/>
+                        <circle cx="55" cy="90" r="8" fill="#475569"/>
+                        <circle cx="55" cy="90" r="3" fill="#94a3b8"/>
+                        <circle cx="145" cy="90" r="15" fill="#1e293b"/>
+                        <circle cx="145" cy="90" r="8" fill="#475569"/>
+                        <circle cx="145" cy="90" r="3" fill="#94a3b8"/>
+                        <rect x="25" y="55" width="15" height="8" rx="2" fill="#fbbf24"/>
+                        <rect x="160" y="55" width="15" height="8" rx="2" fill="#fbbf24"/>
+                    </svg>
+                    <h3>ٹویوٹا ریوو — پہلی</h3>
+                    <p>ابو کی پہلی گاڑی — ڈرائیونگ کا اصل مزہ</p>
+                </div>
+                <div class="car-card animate-on-scroll">
+                    <span class="car-badge">REVO 2</span>
+                    <svg viewBox="0 0 200 120" fill="none">
+                        <rect x="20" y="50" width="160" height="35" rx="5" fill="#3b82f6"/>
+                        <path d="M40 50 L60 25 L140 25 L160 50" fill="#3b82f6"/>
+                        <rect x="65" y="30" width="30" height="20" rx="2" fill="#0f172a" opacity="0.6"/>
+                        <rect x="105" y="30" width="30" height="20" rx="2" fill="#0f172a" opacity="0.6"/>
+                        <circle cx="55" cy="90" r="15" fill="#1e293b"/>
+                        <circle cx="55" cy="90" r="8" fill="#475569"/>
+                        <circle cx="55" cy="90" r="3" fill="#94a3b8"/>
+                        <circle cx="145" cy="90" r="15" fill="#1e293b"/>
+                        <circle cx="145" cy="90" r="8" fill="#475569"/>
+                        <circle cx="145" cy="90" r="3" fill="#94a3b8"/>
+                        <rect x="25" y="55" width="15" height="8" rx="2" fill="#60a5fa"/>
+                        <rect x="160" y="55" width="15" height="8" rx="2" fill="#60a5fa"/>
+                    </svg>
+                    <h3>ٹویوٹا ریوو — دوسری</h3>
+                    <p>دوسری ریوو — سفر جاری ہے</p>
+                </div>
+            </div>
+            <div style="margin-top: 40px; text-align: center;">
+                <div class="about-card animate-on-scroll" style="display: inline-block; max-width: 600px;">
+                    <h3 style="justify-content: center;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        ایک دلچسپ بات
+                    </h3>
+                    <p class="about-description" style="text-align: center;">
+                        مجھے گاڑی چلانے کا بہت شوق ہے، لیکن بائیک سے بہت ڈر لگتا ہے۔ بائیک کی ڈرائیونگ نہیں آتی — اس لیے صرف گاڑی چلاتا ہوں! 🚗
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">مہارتیں</span>
+                <h2 class="section-title">میری صلاحیتیں</h2>
+                <p class="section-subtitle">جو کچھ سیکھ رہا ہوں اور جس میں ماہر ہو رہا ہوں</p>
+            </div>
+            <div class="skills-container">
+                <div class="skills-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                        ٹیکنیکل مہارتیں
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML / CSS</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Web Development</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Artificial Intelligence</span>
+                            <span class="skill-percent">55%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="55"></div>
+                        </div>
+                    </div>
+                    <div class="academy-info">
+                        <h4>🎓 لائف اکیڈمی</h4>
+                        <p>ویب ڈویلپمنٹ اور AI کا کورس — مستقبل کی ٹیکنالوجی سیکھ رہا ہوں</p>
+                    </div>
+                </div>
+                <div class="skills-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        ذاتی مہارتیں
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">تحریر و لکھائی</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">ڈرائیونگ</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">کاروبار سنبھالنا</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">بل بنانا</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="academy-info" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1)); border-color: rgba(239, 68, 68, 0.3);">
+                        <h4 style="color: #fca5a5;">⚠️ ایک بات</h4>
+                        <p>بائیک سے بہت ڈر لگتا ہے — اس لیے بائیک نہیں چلاتا۔ گاڑی ہی میری پسند ہے!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">رابطہ</span>
+                <h2 class="section-title">مجھ سے ملیں</h2>
+                <p class="section-subtitle">کسی بھی بات کے لیے رابطہ کریں — میں ہمیشہ دستیاب ہوں</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card animate-on-scroll">
+                    <h3>رابطے کی معلومات</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>فون نمبر</h4>
+                            <p style="direction: ltr; text-align: right;">0318-3895479</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>پتہ</h4>
+                            <p>نارتھ ناظم آباد، حسین آباد روڈ، کراچی</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <circle cx="12" cy="8" r="5"/>
+                                <path d="M3 21v-2a7 7 0 0114 0v2"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>والد کا نام</h4>
+                            <p>اجمل خان</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>موجودہ مصروفیت</h4>
+                            <p>لائف اکیڈمی — ویب ڈویلپمنٹ و AI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form animate-on-scroll">
+                    <h3>پیغام بھیجیں</h3>
+                    <div class="form-group">
+                        <input type="text" placeholder="آپ کا نام" id="formName">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="فون نمبر" id="formPhone">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="موضوع" id="formSubject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="اپنا پیغام لکھیں..." id="formMessage"></textarea>
+                    </div>
+                    <button class="submit-btn" onclick="sendMessage()">
+                        واٹس ایپ پر بھیجیں
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-name">سیف اللہ خان</p>
+        <p>بیٹا اجمل خان | ویب ڈویلپر | لائف اکیڈمی</p>
+        <div class="social-links">
+            <a href="https://wa.me/923183895479" class="social-link" target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+            </a>
+            <a href="tel:03183895479" class="social-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+            </a>
+            <a href="#contact" class="social-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                </svg>
+            </a>
+        </div>
+        <p style="direction: ltr;">📞 0318-3895479</p>
+        <p style="margin-top: 20px; opacity: 0.5;">© 2026 سیف اللہ خان — تمام حقوق محفوظ ہیں</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923183895479" class="whatsapp-btn" target="_blank">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollTo({top:0, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="3">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    
+                    // Animate skill bars if inside
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Send message via WhatsApp
+        function sendMessage() {
+            const name = document.getElementById('formName').value;
+            const phone = document.getElementById('formPhone').value;
+            const subject = document.getElementById('formSubject').value;
+            const message = document.getElementById('formMessage').value;
+
+            let whatsappMessage = `السلام علیکم سیف اللہ خان!%0A%0A`;
+            if (name) whatsappMessage += `نام: ${name}%0A`;
+            if (phone) whatsappMessage += `فون: ${phone}%0A`;
+            if (subject) whatsappMessage += `موضوع: ${subject}%0A`;
+            if (message) whatsappMessage += `پیغام: ${message}%0A`;
+
+            window.open(`https://wa.me/923183895479?text=${whatsappMessage}`, '_blank');
+        }
+
+        // Typing effect for hero greeting (optional enhancement)
+        const greeting = document.querySelector('.hero-greeting');
+        if (greeting) {
+            greeting.style.opacity = '0';
+            greeting.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                greeting.style.transition = 'all 0.8s ease';
+                greeting.style.opacity = '1';
+                greeting.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        // Parallax effect on blobs
+        document.addEventListener('mousemove', (e) => {
+            const blobs = document.querySelectorAll('.blob');
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            
+            blobs.forEach((blob, i) => {
+                const speed = (i + 1) * 0.5;
+                blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

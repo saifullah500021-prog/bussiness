@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saifullah Khan | Personal Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/index.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --purple: #8b5cf6;
+            --green: #10b981;
+            --red: #ef4444;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --border: rgba(245, 158, 11, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-animation .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: blobMove 20s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--blue);
+            bottom: -200px;
+            left: -200px;
+            animation-delay: 5s;
+        }
+
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--purple);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes blobMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .nav-logo-circle {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .nav-logo-text {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mobile-menu span {
+            width: 28px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px 60px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-greeting {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--border);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--accent), transparent);
+            animation: rotate 8s linear infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(245, 158, 11, 0.3);
+        }
+
+        .profile-avatar::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px dashed var(--accent);
+            animation: rotate 20s linear infinite;
+        }
+
+        .profile-avatar svg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .profile-card h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .profile-card .role {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .stat-item {
+            padding: 15px 10px;
+            background: rgba(245, 158, 11, 0.08);
+            border-radius: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item .num {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Floating badges */
+        .floating-badge {
+            position: absolute;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: float 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .floating-badge svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .badge-1 {
+            top: 20px;
+            left: -30px;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            bottom: 80px;
+            right: -40px;
+            animation-delay: 1.5s;
+        }
+
+        .badge-3 {
+            bottom: 20px;
+            left: -20px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-card h3 svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list .label {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .info-list .value {
+            color: var(--text);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .about-description {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        /* Business Section */
+        .business {
+            background: linear-gradient(180deg, transparent, rgba(30, 41, 59, 0.3), transparent);
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .business-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .business-card:hover::before {
+            opacity: 1;
+        }
+
+        .business-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .business-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .business-icon svg {
+            width: 45px;
+            height: 45px;
+        }
+
+        .business-card h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .business-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .business-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 15px 0;
+            position: relative;
+        }
+
+        /* Family Company Section */
+        .family-company {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 50px;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .family-company::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .family-company h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .family-company p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .family-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .family-stat {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .family-stat .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+        }
+
+        .family-stat .text {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .skills-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 40px;
+        }
+
+        .skills-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skills-card h3 svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .skill-percent {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        .academy-info {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .academy-info h4 {
+            color: var(--blue-light);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .academy-info p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(180deg, transparent, rgba(30, 41, 59, 0.3));
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px;
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .contact-info h4 {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+            font-weight: normal;
+        }
+
+        .contact-info p {
+            color: var(--text);
+            font-size: 1.05rem;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-dim);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid var(--border);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-name {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--accent);
+            transition: fill 0.3s;
+        }
+
+        .social-link:hover svg {
+            fill: var(--primary);
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        .scroll-top svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Animations on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .business-grid,
+            .skills-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .family-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .floating-badge {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                text-align: center;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-avatar {
+                width: 140px;
+                height: 140px;
+            }
+
+            .business-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .family-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="scrollTo({top:0, behavior:'smooth'})">
+                <div class="nav-logo-circle">SK</div>
+                <span class="nav-logo-text">Saifullah Khan</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-greeting">✨ Hello, I am</span>
+                <h1>Saifullah <span class="highlight">Khan</span></h1>
+                <h2>Son of Ajmal Khan | Web Developer | Life Academy Student</h2>
+                <p>Passionate about writing, driving, and exploring the world of technology. Currently learning Web Development and AI at Life Academy while managing family construction business.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Contact Me
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                    </a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="35" r="18" fill="#0f172a"/>
+                            <path d="M20 85c0-16.5 13.5-30 30-30s30 13.5 30 30" fill="#0f172a"/>
+                            <circle cx="50" cy="35" r="14" fill="#f59e0b" opacity="0.2"/>
+                            <path d="M35 50 Q50 65 65 50" stroke="#f59e0b" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Saifullah Khan</h3>
+                    <p class="role">Web Developer | AI Student</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="num">2+</span>
+                            <span class="label">Years Education</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="num">2</span>
+                            <span class="label">Courses</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="num">∞</span>
+                            <span class="label">Passion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Badges -->
+                <div class="floating-badge badge-1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                        <path d="M2 2l7.586 7.586"/>
+                        <circle cx="11" cy="11" r="2"/>
+                    </svg>
+                    <span style="color: var(--text);">Writing</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                        <rect x="1" y="3" width="15" height="13" rx="2"/>
+                        <path d="M16 8h4l3 3v5h-7V8z"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                    <span style="color: var(--text);">Driving</span>
+                </div>
+                <div class="floating-badge badge-3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    <span style="color: var(--text);">AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Who Am I?</h2>
+                <p class="section-subtitle">A brief introduction about myself and my journey</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <circle cx="12" cy="8" r="5"/>
+                            <path d="M3 21v-2a7 7 0 0114 0v2"/>
+                        </svg>
+                        Personal Information
+                    </h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="label">Full Name</span>
+                            <span class="value">Saifullah Khan</span>
+                        </li>
+                        <li>
+                            <span class="label">Father's Name</span>
+                            <span class="value">Ajmal Khan</span>
+                        </li>
+                        <li>
+                            <span class="label">Education</span>
+                            <span class="value">First & Second Year</span>
+                        </li>
+                        <li>
+                            <span class="label">Current Course</span>
+                            <span class="value">Web Development & AI</span>
+                        </li>
+                        <li>
+                            <span class="label">Academy</span>
+                            <span class="value">Life Academy</span>
+                        </li>
+                        <li>
+                            <span class="label">Address</span>
+                            <span class="value">North Nazimabad, Housbay Road, Karachi</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                        </svg>
+                        My Story
+                    </h3>
+                    <p class="about-description">
+                        My name is Saifullah Khan, son of Ajmal Khan. I've had a passion for writing since childhood — I loved writing during my school days.
+                    </p>
+                    <p class="about-description">
+                        I've completed my First and Second Year and am currently pursuing Web Development and AI courses at Life Academy. I want to build my future in the technology world.
+                    </p>
+                    <p class="about-description">
+                        I love driving — my father has two Toyota Revo vehicles that I drive. However, I'm afraid of bikes, so I don't ride them.
+                    </p>
+                    <p class="about-description">
+                        I also help manage my father's construction business — boundary walls, dumpers, and block works.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="section business" id="business">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Family Business</span>
+                <h2 class="section-title">Our Construction Business</h2>
+                <p class="section-subtitle">Complete construction services with quality materials and experienced team</p>
+            </div>
+            <div class="business-grid">
+                <div class="business-card animate-on-scroll">
+                    <div class="business-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <rect x="3" y="8" width="18" height="12" rx="1"/>
+                            <path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2"/>
+                            <line x1="7" y1="12" x2="7" y2="12.01"/>
+                            <line x1="17" y1="12" x2="17" y2="12.01"/>
+                        </svg>
+                    </div>
+                    <h3>Boundary Walls</h3>
+                    <p>Complete boundary wall construction for land using cement, blocks, masons, and skilled workers</p>
+                </div>
+                <div class="business-card animate-on-scroll">
+                    <div class="business-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13" rx="2"/>
+                            <path d="M16 8h4l3 3v5h-7V8z"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <h3>Dumper Service</h3>
+                    <p>Land leveling and earth work with our own dumpers for efficient project completion</p>
+                    <div class="business-number">2</div>
+                    <p>Own Dumpers</p>
+                </div>
+                <div class="business-card animate-on-scroll">
+                    <div class="business-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Water Supply</h3>
+                    <p>Water management for construction work ensuring proper mixing and curing of materials</p>
+                </div>
+            </div>
+
+            <!-- Family Company -->
+            <div class="family-company animate-on-scroll">
+                <h3>Haji Tor Khan Machine Block Works</h3>
+                <p>Our family company with 9 uncles working together. All uncles are involved in the block manufacturing business. Three uncles are drivers managing their own work independently. I handle billing and accounts for the business.</p>
+                <div class="family-stats">
+                    <div class="family-stat">
+                        <span class="number">9</span>
+                        <span class="text">Uncles in Business</span>
+                    </div>
+                    <div class="family-stat">
+                        <span class="number">3</span>
+                        <span class="text">Driver Uncles</span>
+                    </div>
+                    <div class="family-stat">
+                        <span class="number">3</span>
+                        <span class="text">Mazda Trucks</span>
+                    </div>
+                    <div class="family-stat">
+                        <span class="number">4</span>
+                        <span class="text">Total Dumpers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Skills</span>
+                <h2 class="section-title">My Abilities</h2>
+                <p class="section-subtitle">What I'm learning and what I'm good at</p>
+            </div>
+            <div class="skills-container">
+                <div class="skills-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                        Technical Skills
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML / CSS</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Web Development</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Artificial Intelligence</span>
+                            <span class="skill-percent">55%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="55"></div>
+                        </div>
+                    </div>
+                    <div class="academy-info">
+                        <h4>🎓 Life Academy</h4>
+                        <p>Learning Web Development and AI — Building my future in technology</p>
+                    </div>
+                </div>
+                <div class="skills-card animate-on-scroll">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Personal Skills
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Writing & Composition</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Driving (Car)</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Business Management</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Billing & Accounts</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="academy-info" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1)); border-color: rgba(239, 68, 68, 0.3);">
+                        <h4 style="color: #fca5a5;">⚠️ Note</h4>
+                        <p>I'm afraid of motorcycles, so I only drive cars. Toyota Revo is my favorite!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Feel free to reach out for any inquiries or collaboration</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card animate-on-scroll">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Phone Number</h4>
+                            <p>0318-3895479</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Address</h4>
+                            <p>North Nazimabad, Housbay Road, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <circle cx="12" cy="8" r="5"/>
+                                <path d="M3 21v-2a7 7 0 0114 0v2"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Father's Name</h4>
+                            <p>Ajmal Khan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Current Activity</h4>
+                            <p>Life Academy — Web Dev & AI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form animate-on-scroll">
+                    <h3>Send Message</h3>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" id="formName">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" id="formPhone">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" id="formSubject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Write your message..." id="formMessage"></textarea>
+                    </div>
+                    <button class="submit-btn" onclick="sendMessage()">
+                        Send via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-name">Saifullah Khan</p>
+        <p>Son of Ajmal Khan | Web Developer | Life Academy</p>
+        <div class="social-links">
+            <a href="https://wa.me/923183895479" class="social-link" target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+            </a>
+            <a href="tel:03183895479" class="social-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+            </a>
+            <a href="#contact" class="social-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+            </a>
+        </div>
+        <p>📞 0318-3895479</p>
+        <p style="margin-top: 20px; opacity: 0.5;">© 2026 Saifullah Khan — All Rights Reserved</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923183895479" class="whatsapp-btn" target="_blank">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollTo({top:0, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="3">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    
+                    // Animate skill bars if inside
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Send message via WhatsApp
+        function sendMessage() {
+            const name = document.getElementById('formName').value;
+            const phone = document.getElementById('formPhone').value;
+            const subject = document.getElementById('formSubject').value;
+            const message = document.getElementById('formMessage').value;
+
+            let whatsappMessage = `Hello Saifullah Khan!%0A%0A`;
+            if (name) whatsappMessage += `Name: ${name}%0A`;
+            if (phone) whatsappMessage += `Phone: ${phone}%0A`;
+            if (subject) whatsappMessage += `Subject: ${subject}%0A`;
+            if (message) whatsappMessage += `Message: ${message}%0A`;
+
+            window.open(`https://wa.me/923183895479?text=${whatsappMessage}`, '_blank');
+        }
+
+        // Typing effect for hero greeting
+        const greeting = document.querySelector('.hero-greeting');
+        if (greeting) {
+            greeting.style.opacity = '0';
+            greeting.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                greeting.style.transition = 'all 0.8s ease';
+                greeting.style.opacity = '1';
+                greeting.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        // Parallax effect on blobs
+        document.addEventListener('mousemove', (e) => {
+            const blobs = document.querySelectorAll('.blob');
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            
+            blobs.forEach((blob, i) => {
+                const speed = (i + 1) * 0.5;
+                blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
